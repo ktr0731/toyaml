@@ -2,6 +2,7 @@ package toyaml_test
 
 import (
 	"bytes"
+	"fmt"
 	"testing"
 
 	"github.com/ghodss/yaml"
@@ -30,6 +31,7 @@ func TestToYAML(t *testing.T) {
 	require.NoError(t, err)
 
 	assertValue := func(t *testing.T, b []byte) {
+		fmt.Printf("%s\n", b)
 		var actual example
 		err := yaml.Unmarshal(b, &actual)
 		require.NoError(t, err)
